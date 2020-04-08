@@ -1,33 +1,37 @@
-range_end = 5
+from common import util
+
+LOGGER = util.get_logger()
+
+RANGE_END = 5
 
 
 def gen():
-    for i in range(range_end):
-        print(f'yielding the value...')
+    for i in range(RANGE_END):
+        LOGGER.info(f'yielding the value...')
         yield i
 
 
 g = gen()
 # g is a generator object
-print(g)
+LOGGER.info(g)
 
 # iterate through it twice
-print(next(g))
-print(next(g))
+LOGGER.info(next(g))
+LOGGER.info(next(g))
 
 # consume the rest of it
 for i in g:
-    print(i)
+    LOGGER.info(i)
 
 
-g = (i for i in range(range_end))
+g = (i for i in range(RANGE_END))
 # g is a generator expression
-print(g)
+LOGGER.info(g)
 
 # iterate through it twice
-print(next(g))
-print(next(g))
+LOGGER.info(next(g))
+LOGGER.info(next(g))
 
 # consume the rest of it
 for i in g:
-    print(i)
+    LOGGER.info(i)
